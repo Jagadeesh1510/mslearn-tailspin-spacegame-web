@@ -65,6 +65,7 @@ stages:
 
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
+      
 
 - stage: 'Deploy'
   displayName: 'Deploy the web application'
@@ -85,6 +86,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'Space Game - web - Tests'
+              azureSubscription: 'Space Game - web -Tests'
               appName: '$(WebAppName)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
